@@ -1,0 +1,27 @@
+body {
+  background-color: #212121;
+}
+
+.MuiOutlinedInput-root:hover fieldset {
+  border: white solid 1px !important;
+}
+.MuiOutlinedInput-root fieldset {
+  border: white solid 1px !important;
+}
+.MuiDataGrid-row,
+.css-wx0f7d-MuiDataGrid-root
+  .MuiDataGrid-virtualScrollerContent
+  .MuiDataGrid-row.Mui-selected,
+.MuiDataGrid-footerContainer {
+  background-color: #fff;
+}
+.MuiDataGrid-scrollbar {
+  background-color: #fff !important;
+  height: 5px !important;
+}
+.MuiDataGrid-filler {
+  height: auto !important;
+}
+.css-ul02ik {
+  background-color: #fff !important;
+}
