@@ -9,7 +9,7 @@ import { Container } from "@mui/material";
 import CardHeader from "@mui/material/CardHeader";
 import Box from "@mui/material/Box";
 import MovieModal from "./MovieModal";
-import "./Home.css";
+import "../Styles/Home.css";
 import Header from "./Header";
 import { useContext } from "react";
 import MovieContext from "./movieContext";
