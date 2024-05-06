@@ -24,8 +24,8 @@ const Home = () => {
     setOpen(false);
     setSingleMovie([]);
   };
-  const { movieArr } = useContext(MovieContext);
-  const [searchedData, setSearchedData] = useState(movieArr);
+  const { movieData } = useContext(MovieContext);
+  const [searchedData, setSearchedData] = useState(movieData);
 
   const handleSingleMovie = async (id) => {
     const options = {
@@ -60,7 +60,7 @@ const Home = () => {
 
   useEffect(() => {
     setSearchedData(
-      movieArr.filter(
+      movieData.filter(
         (values) =>
           values?.title
             .trim()

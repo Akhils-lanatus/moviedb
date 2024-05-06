@@ -7,8 +7,8 @@ import { useContext } from "react";
 import MovieContext from "./movieContext";
 
 export default function Edit() {
-  const { movieArr, setMovieArr } = useContext(MovieContext);
-  // const [rows, setRows] = React.useState(movieArr);
+  const { movieData, setmovieData } = useContext(MovieContext);
+  // const [rows, setRows] = React.useState(movieData);
 
   const columns = [
     { field: "id", headerName: "ID", width: 300 },
@@ -35,8 +35,8 @@ export default function Edit() {
   const processRowUpdate = (newRow) => {
     const updatedRow = { ...newRow, isNew: false };
     // setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
-    setMovieArr(
-      movieArr.map((row) => (row.id === newRow.id ? updatedRow : row))
+    setmovieData(
+      movieData.map((row) => (row.id === newRow.id ? updatedRow : row))
     );
     return updatedRow;
   };
@@ -51,7 +51,7 @@ export default function Edit() {
           Edit Movies
         </Typography>
         <DataGrid
-          rows={movieArr}
+          rows={movieData}
           columns={columns}
           editMode="row"
           processRowUpdate={processRowUpdate}
@@ -71,7 +71,7 @@ export default function Edit() {
           }}
           pageSizeOptions={[5, 10, 20, 50, 100]}
           slotProps={{
-            toolbar: { setMovieArr },
+            toolbar: { setmovieData },
           }}
         />
       </Container>

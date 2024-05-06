@@ -2,9 +2,9 @@ import React, { createContext, useContext, useState } from "react";
 import { movieList } from "../utils/moviedata";
 const MovieContext = createContext();
 export const MovieContextProvider = ({ children }) => {
-  const [movieArr, setMovieArr] = useState(movieList);
+  const [movieData, setmovieData] = useState(movieList);
   return (
-    <MovieContext.Provider value={{ movieArr, setMovieArr }}>
+    <MovieContext.Provider value={{ movieData, setmovieData }}>
       {children}
     </MovieContext.Provider>
   );
