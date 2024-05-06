@@ -19,7 +19,7 @@ const Home = () => {
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = useState(false);
   const [searchquery, setsearchquery] = useState("");
-  const handleOpen = () => setOpen(true);
+  // const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
     setSingleMovie([]);
@@ -37,22 +37,26 @@ const Home = () => {
       },
     };
 
-    let temp = searchedData.filter((item) => item.id == id);
+    // console.log(id);
+    // let temp = searchedData.filter((item) => item.id == id);
+    // console.log(temp[0]?.id);
     setOpen(true);
     setLoading(true);
-    await fetch(
-      `https://api.themoviedb.org/3/movie/${temp[0]?.id}/videos`,
-      options
-    )
+    await fetch(`https://api.themoviedb.org/3/movie/${id}/videos`, options)
       .then((response) => response.json())
       .then((response) => {
-        let tempNew = temp.map((items) => {
-          return {
-            ...items,
-            trailer: `https://www.youtube.com/watch?v=${response.results[0].key}`,
-          };
+        let filteredData = searchedData.filter((items) => {
+          if (items.id === id) {
+            items = {
+              ...items,
+              trailer:
+                (items.trailer = `https://www.youtube.com/watch?v=${response.results[0].key}`),
+            };
+            return true;
+          }
+          return false;
         });
-        setSingleMovie(tempNew);
+        setSingleMovie(filteredData);
       })
       .catch((err) => console.error(err));
     setLoading(false);
@@ -89,6 +93,7 @@ const Home = () => {
     setSearchedData(temp);
     setIsAscending(!isAscending);
     // scrollTo(top);
+    window.scrollTo({ behavior: "smooth", top: 0 });
   };
 
   return (
