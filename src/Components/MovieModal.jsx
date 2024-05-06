@@ -65,8 +65,8 @@ const MovieModal = ({ handleClose, open, singleMovie, loading }) => {
                   onClick={handleClose}
                   sx={{
                     position: "absolute",
-                    top: 25,
-                    right: 25,
+                    top: 0,
+                    right: 0,
                     cursor: "pointer",
                   }}
                   fontSize="large"
