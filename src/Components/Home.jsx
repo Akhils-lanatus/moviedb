@@ -18,7 +18,7 @@ const Home = () => {
   const [isAscending, setIsAscending] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = useState(false);
-  const [searchquery, setsearchquery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   // const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
@@ -62,6 +62,8 @@ const Home = () => {
     setLoading(false);
   };
 
+  console.log(singleMovie);
+
   useEffect(() => {
     setSearchedData(
       movieData.filter(
@@ -69,17 +71,17 @@ const Home = () => {
           values?.title
             .trim()
             .toLowerCase()
-            .includes(searchquery.trim().toLowerCase()) ||
+            .includes(searchQuery.trim().toLowerCase()) ||
           values?.overview
             .trim()
             .toLowerCase()
-            .includes(searchquery.trim().toLowerCase()) ||
+            .includes(searchQuery.trim().toLowerCase()) ||
           new Date(values?.release_date)
             .toLocaleDateString("en-IN")
-            .includes(searchquery.trim().toLowerCase())
+            .includes(searchQuery.trim().toLowerCase())
       )
     );
-  }, [searchquery]);
+  }, [searchQuery, movieData]);
 
   // console.log(singleMovie[0]?.title);
 
@@ -101,8 +103,8 @@ const Home = () => {
       <Box sx={{ flexGrow: 1, mb: 7 }}>
         <Header
           isAscending={isAscending}
-          searchquery={searchquery}
-          setsearchquery={setsearchquery}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
           sortMovies={sortMovies}
         />
       </Box>
