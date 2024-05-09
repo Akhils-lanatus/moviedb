@@ -5,7 +5,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { Typography, Box, TextField } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
-const Header = ({ isAscending, searchquery, setsearchquery, sortMovies }) => {
+const Header = ({ isAscending, searchQuery, setSearchQuery, sortMovies }) => {
   const { pathname } = useLocation();
   //   console.log(pathname);
 
@@ -72,8 +72,8 @@ const Header = ({ isAscending, searchquery, setsearchquery, sortMovies }) => {
               </span>
             </Typography>
             <TextField
-              value={searchquery}
-              onChange={(e) => setsearchquery(e.target.value)}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               size="small"
               sx={{ width: "50%" }}
               inputProps={{ style: { color: "white" } }}
