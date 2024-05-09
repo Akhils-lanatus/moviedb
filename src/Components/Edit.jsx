@@ -7,7 +7,7 @@ import { useContext } from "react";
 import MovieContext from "./movieContext";
 
 export default function Edit() {
-  const { movieData, setmovieData } = useContext(MovieContext);
+  const { movieData, setMovieData } = useContext(MovieContext);
   // const [rows, setRows] = React.useState(movieData);
 
   const columns = [
@@ -35,7 +35,7 @@ export default function Edit() {
   const processRowUpdate = (newRow) => {
     const updatedRow = { ...newRow, isNew: false };
     // setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
-    setmovieData(
+    setMovieData(
       movieData.map((row) => (row.id === newRow.id ? updatedRow : row))
     );
     return updatedRow;
@@ -71,7 +71,7 @@ export default function Edit() {
           }}
           pageSizeOptions={[5, 10, 20, 50, 100]}
           slotProps={{
-            toolbar: { setmovieData },
+            toolbar: { setMovieData },
           }}
         />
       </Container>
